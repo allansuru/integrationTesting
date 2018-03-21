@@ -39,4 +39,6 @@ let fixture: ComponentFixture<VoterComponent>;
     expect(de.classes['highlighted']).toBeTruthy();
 
   });
+
+  it('should increase total votes when I click the upvote')
 });
