@@ -1,8 +1,9 @@
+import { NavComponent } from './nav/nav.component';
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing'; 
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule.withRoutes([])],
-      declarations: [ AppComponent ]
+      declarations: [ AppComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
@@ -30,12 +32,4 @@ describe('AppComponent', () => {
 
     expect(de).not.toBe(null);
   });
-
-  it('should a have a link to todo page', () => {
-   let debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
-
-   // <a href='/todos'>
-   let index = debugElements.findIndex(de => de.properties['href'] === '/todos');
-   expect(index).toBeGreaterThan(-1);
-  })
 });
